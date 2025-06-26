@@ -5,7 +5,6 @@ export const VIDEO_DIMENSIONS = {
   height: 1920,
 } as const;
 
-
 // inteface for data during compile-time, define shape of the data
 export interface IVideo {
   _id?: mongoose.Types.ObjectId;
@@ -22,7 +21,7 @@ export interface IVideo {
 }
 
 // interface for data during runtime of MongoDB, define datatypes for MongoDB in the database
-// Schema is a generic that uses IVideo type argument 
+// Schema is a generic that uses IVideo type argument
 const videoSchema = new Schema<IVideo>(
   {
     title: { type: String, required: true },
@@ -40,3 +39,7 @@ const videoSchema = new Schema<IVideo>(
     timestamps: true,
   }
 );
+
+const Video = models?.Video || model<IVideo>("Video", videoSchema);
+
+export default Video;
