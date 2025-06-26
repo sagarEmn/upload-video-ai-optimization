@@ -22,6 +22,7 @@ export interface IVideo {
 }
 
 // interface for data during runtime of MongoDB, define datatypes for MongoDB in the database
+// Schema is a generic that uses IVideo type argument 
 const videoSchema = new Schema<IVideo>(
   {
     title: { type: String, required: true },
