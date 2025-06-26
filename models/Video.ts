@@ -5,6 +5,8 @@ export const VIDEO_DIMENSIONS = {
   height: 1920,
 } as const;
 
+
+// inteface for data during compile-time, define shape of the data
 export interface IVideo {
   _id?: mongoose.Types.ObjectId;
   title: string;
@@ -19,6 +21,7 @@ export interface IVideo {
   };
 }
 
+// interface for data during runtime of MongoDB, define datatypes for MongoDB in the database
 const videoSchema = new Schema<IVideo>(
   {
     title: { type: String, required: true },
